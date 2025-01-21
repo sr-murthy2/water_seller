@@ -37,6 +37,8 @@ def main() -> None:
     clone_ktools: CloneRepos = CloneRepos(
         root_path=root_path,
         git_url="https://github.com/OasisLMF/ktools.git",
+        branch="v3.10.0",
+        depth=1,
         package_name="ktools"
     )
     clone_ktools.clone_repo()
@@ -50,6 +52,8 @@ def main() -> None:
     clone_oasislmf: CloneRepos = CloneRepos(
         root_path=root_path,
         git_url="https://github.com/OasisLMF/OasisLMF.git",
+        branch="1.28.2",
+        depth=1,
         package_name="oasislmf"
     )
     clone_oasislmf.clone_repo()

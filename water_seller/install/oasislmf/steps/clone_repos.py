@@ -14,7 +14,7 @@ class CloneRepos:
         git_url: the url of the git repo to clone
         package_name: the name of the package to clone
     """
-    def __init__(self, root_path: str, git_url: str, package_name: str) -> None:
+    def __init__(self, root_path: str, git_url: str, branch: str, depth: int, package_name: str) -> None:
         """
         The constructor for the CloneRepos class.
 
@@ -24,15 +24,17 @@ class CloneRepos:
         """
         self._root_path: str = root_path
         self.git_url: str = git_url
+        self.branch: str = branch
+        self.depth: int = depth
         self.package_name: str = package_name
-
+        
     def clone_repo(self) -> None:
         """
         Clones the git repo.
 
         :return: None
         """
-        TerminalCommand(f"cd {self.root_path} && git clone {self.git_url}").wait()
+        TerminalCommand(f"cd {self.root_path} && git clone --depth {self.depth} --branch {self.branch} {self.git_url}").wait()
 
     @property
     def root_path(self) -> str:
